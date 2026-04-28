@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MKS Performance — Growth. Data. Conversion.</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+  <!-- ========== CANVAS DE PARTÍCULAS ========== -->
+  <canvas id="particle-canvas"></canvas>
+
+  <!-- ========== HEADER ========== -->
+  <header class="header" id="header">
+    <div class="container header__inner">
+      <a href="#" class="logo">
+        <span class="logo__mark">MKS</span>
+        <span class="logo__sub">PERFORMANCE</span>
+      </a>
+
+      <nav class="nav" id="nav">
+        <a href="#servicos" class="nav__link">Serviços</a>
+        <a href="#sobre" class="nav__link">Sobre</a>
+        <a href="#resultados" class="nav__link">Resultados</a>
+        <a href="#depoimentos" class="nav__link">Clientes</a>
+        <a href="#contato" class="nav__link nav__link--cta">Falar com Especialista</a>
+      </nav>
+
+      <button class="hamburger" id="hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ========== HERO ========== -->
+    <section class="hero" id="hero">
+      <div class="hero__grid-lines" aria-hidden="true"></div>
+
+      <div class="container hero__content">
+        <div class="hero__eyebrow">
+          <span class="pulse-dot"></span>
+          <span class="mono">Tráfego Pago &amp; Automações</span>
+        </div>
+
+        <h1 class="hero__title">
+          <span class="title-line" data-text="Growth.">Growth.</span>
+          <span class="title-line title-line--accent" data-text="Data.">Data.</span>
+          <span class="title-line" data-text="Conversion.">Conversion.</span>
+        </h1>
+
+        <p class="hero__sub">
+          Transformamos orçamento de mídia em receita previsível. Gerenciamos tráfego pago com
+          precisão analítica e automatizamos processos para você escalar sem perder eficiência.
+        </p>
+
+        <div class="hero__actions">
+          <a href="#contato" class="btn btn--primary">
+            <i class="fa-solid fa-rocket"></i> Escalar meu negócio
+          </a>
+          <a href="#servicos" class="btn btn--ghost">
+            Ver como funciona <i class="fa-solid fa-arrow-down-long"></i>
+          </a>
+        </div>
+
+        <!-- Métricas flutuantes -->
+        <div class="hero__metrics">
+          <div class="metric">
+            <span class="metric__value">+340<small>%</small></span>
+            <span class="metric__label">ROI médio</span>
+          </div>
+          <div class="metric__divider"></div>
+          <div class="metric">
+            <span class="metric__value">R$12M<small>+</small></span>
+            <span class="metric__label">em verba gerenciada</span>
+          </div>
+          <div class="metric__divider"></div>
+          <div class="metric">
+            <span class="metric__value">180<small>+</small></span>
+            <span class="metric__label">clientes ativos</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Decoração -->
+      <div class="hero__orb hero__orb--blue" aria-hidden="true"></div>
+      <div class="hero__orb hero__orb--purple" aria-hidden="true"></div>
+    </section>
+
+    <!-- ========== TICKER / LOGOTAPE ========== -->
+    <div class="ticker" aria-hidden="true">
+      <div class="ticker__track">
+        <span>Google Ads</span><span class="ticker__sep">✦</span>
+        <span>Meta Ads</span><span class="ticker__sep">✦</span>
+        <span>TikTok Ads</span><span class="ticker__sep">✦</span>
+        <span>LinkedIn Ads</span><span class="ticker__sep">✦</span>
+        <span>YouTube Ads</span><span class="ticker__sep">✦</span>
+        <span>Programática</span><span class="ticker__sep">✦</span>
+        <span>CRM & Automação</span><span class="ticker__sep">✦</span>
+        <span>Analytics</span><span class="ticker__sep">✦</span>
+        <span>Funis de Conversão</span><span class="ticker__sep">✦</span>
+        <!-- duplicado para loop -->
+        <span>Google Ads</span><span class="ticker__sep">✦</span>
+        <span>Meta Ads</span><span class="ticker__sep">✦</span>
+        <span>TikTok Ads</span><span class="ticker__sep">✦</span>
+        <span>LinkedIn Ads</span><span class="ticker__sep">✦</span>
+        <span>YouTube Ads</span><span class="ticker__sep">✦</span>
+        <span>Programática</span><span class="ticker__sep">✦</span>
+        <span>CRM & Automação</span><span class="ticker__sep">✦</span>
+        <span>Analytics</span><span class="ticker__sep">✦</span>
+        <span>Funis de Conversão</span><span class="ticker__sep">✦</span>
+      </div>
+    </div>
+
+    <!-- ========== SERVIÇOS ========== -->
+    <section class="services" id="servicos">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag mono">// o que fazemos</span>
+          <h2 class="section-title">Soluções de <span class="gradient-text">alta performance</span></h2>
+          <p class="section-desc">Cada serviço foi desenhado para gerar resultado mensurável. Nada de vaidade métrica.</p>
+        </div>
+
+        <div class="services__grid">
+
+          <article class="card card--service">
+            <div class="card__icon">
+              <i class="fa-brands fa-google"></i>
+            </div>
+            <h3 class="card__title">Google Ads</h3>
+            <p class="card__desc">Campanhas Search, Display e PMax otimizadas por dados reais de conversão, não por métricas de vaidade.</p>
+            <ul class="card__list">
+              <li><i class="fa-solid fa-check"></i> Estratégia de palavras-chave</li>
+              <li><i class="fa-solid fa-check"></i> Otimização de lances (Smart Bidding)</li>
+              <li><i class="fa-solid fa-check"></i> Landing Pages de alta conversão</li>
+            </ul>
+            <div class="card__footer">
+              <a href="#contato" class="card__link">Saiba mais <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+          </article>
+
+          <article class="card card--service card--featured">
+            <div class="card__badge">Mais popular</div>
+            <div class="card__icon">
+              <i class="fa-brands fa-meta"></i>
+            </div>
+            <h3 class="card__title">Meta Ads</h3>
+            <p class="card__desc">Facebook e Instagram com criativos testados por IA e segmentação avançada de audiências quentes.</p>
+            <ul class="card__list">
+              <li><i class="fa-solid fa-check"></i> Testes A/B em criativos</li>
+              <li><i class="fa-solid fa-check"></i> Lookalike audiences</li>
+              <li><i class="fa-solid fa-check"></i> Remarketing dinâmico</li>
+            </ul>
+            <div class="card__footer">
+              <a href="#contato" class="card__link">Saiba mais <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+          </article>
+
+          <article class="card card--service">
+            <div class="card__icon">
+              <i class="fa-solid fa-bolt"></i>
+            </div>
+            <h3 class="card__title">Automações</h3>
+            <p class="card__desc">Fluxos inteligentes que nutrem leads, qualificam oportunidades e fecham vendas enquanto você dorme.</p>
+            <ul class="card__list">
+              <li><i class="fa-solid fa-check"></i> CRM & email marketing</li>
+              <li><i class="fa-solid fa-check"></i> Chatbot com IA</li>
+              <li><i class="fa-solid fa-check"></i> Integração entre plataformas</li>
+            </ul>
+            <div class="card__footer">
+              <a href="#contato" class="card__link">Saiba mais <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+          </article>
+
+          <article class="card card--service">
+            <div class="card__icon">
+              <i class="fa-brands fa-tiktok"></i>
+            </div>
+            <h3 class="card__title">TikTok & YouTube Ads</h3>
+            <p class="card__desc">Vídeos que convertem. Estratégias para plataformas de vídeo com foco em awareness e geração de demanda.</p>
+            <ul class="card__list">
+              <li><i class="fa-solid fa-check"></i> Briefing criativo data-driven</li>
+              <li><i class="fa-solid fa-check"></i> UGC e criativos nativos</li>
+              <li><i class="fa-solid fa-check"></i> Funil completo em vídeo</li>
+            </ul>
+            <div class="card__footer">
+              <a href="#contato" class="card__link">Saiba mais <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+          </article>
+
+          <article class="card card--service">
+            <div class="card__icon">
+              <i class="fa-solid fa-chart-line"></i>
+            </div>
+            <h3 class="card__title">Analytics & BI</h3>
+            <p class="card__desc">Dashboards em tempo real para você tomar decisões baseadas em dados, não em intuição.</p>
+            <ul class="card__list">
+              <li><i class="fa-solid fa-check"></i> Google Analytics 4</li>
+              <li><i class="fa-solid fa-check"></i> Looker Studio / Power BI</li>
+              <li><i class="fa-solid fa-check"></i> Rastreamento avançado (GTM)</li>
+            </ul>
+            <div class="card__footer">
+              <a href="#contato" class="card__link">Saiba mais <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+          </article>
+
+          <article class="card card--service">
+            <div class="card__icon">
+              <i class="fa-brands fa-linkedin"></i>
+            </div>
+            <h3 class="card__title">LinkedIn Ads</h3>
+            <p class="card__desc">Geração de leads B2B com precisão cirúrgica. Segmentação por cargo, empresa e setor de atuação.</p>
+            <ul class="card__list">
+              <li><i class="fa-solid fa-check"></i> Lead Gen Forms</li>
+              <li><i class="fa-solid fa-check"></i> Sponsored Content</li>
+              <li><i class="fa-solid fa-check"></i> ABM (Account-Based Marketing)</li>
+            </ul>
+            <div class="card__footer">
+              <a href="#contato" class="card__link">Saiba mais <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== SOBRE ========== -->
+    <section class="about" id="sobre">
+      <div class="container about__inner">
+        <div class="about__visual">
+          <div class="about__stat-block">
+            <span class="stat-num">7<small>+</small></span>
+            <span class="stat-lbl">anos de mercado</span>
+          </div>
+          <div class="about__stat-block about__stat-block--accent">
+            <span class="stat-num">98<small>%</small></span>
+            <span class="stat-lbl">taxa de retenção</span>
+          </div>
+          <div class="about__stat-block">
+            <span class="stat-num">50M<small>+</small></span>
+            <span class="stat-lbl">impressões/mês</span>
+          </div>
+          <div class="about__code-snippet mono">
+            <span class="code-comment">// nosso stack</span><br/>
+            <span class="code-key">platforms</span>: [<span class="code-val">"Google"</span>, <span class="code-val">"Meta"</span>,<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-val">"TikTok"</span>, <span class="code-val">"LinkedIn"</span>],<br/>
+            <span class="code-key">focus</span>: <span class="code-val">"ROI positivo"</span>,<br/>
+            <span class="code-key">approach</span>: <span class="code-val">"data-driven"</span>
+          </div>
+        </div>
+
+        <div class="about__text">
+          <span class="section-tag mono">// quem somos</span>
+          <h2 class="section-title">Performance não é<br/><span class="gradient-text">promessa, é entrega.</span></h2>
+          <p>A MKS Performance nasceu da frustração com agências que entregam relatórios bonitos mas resultados medíocres. Construímos uma metodologia própria focada em uma única coisa: <strong>retorno sobre investimento real</strong>.</p>
+          <p>Nossa equipe é formada por especialistas certificados nas principais plataformas de mídia paga, analistas de dados e engenheiros de automação. Cada conta é tratada como se fosse a nossa própria empresa.</p>
+          <p>Trabalhamos com empresas de médio e grande porte que querem escalar sem improvisar. Se você busca previsibilidade e crescimento sustentável, somos o parceiro certo.</p>
+
+          <div class="about__badges">
+            <span class="badge"><i class="fa-brands fa-google"></i> Google Partner</span>
+            <span class="badge"><i class="fa-brands fa-meta"></i> Meta Business Partner</span>
+            <span class="badge"><i class="fa-solid fa-award"></i> Top Rated Agency</span>
+          </div>
+
+          <a href="#contato" class="btn btn--primary">Conversar com um especialista</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== RESULTADOS ========== -->
+    <section class="results" id="resultados">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag mono">// números reais</span>
+          <h2 class="section-title">Resultados que <span class="gradient-text">falam por si</span></h2>
+        </div>
+
+        <div class="results__grid">
+          <div class="result-card">
+            <span class="result-card__num counter" data-target="340">0</span><span class="result-card__unit">%</span>
+            <p class="result-card__desc">de aumento em ROI no primeiro trimestre de gestão</p>
+          </div>
+          <div class="result-card">
+            <span class="result-card__num counter" data-target="12">0</span><span class="result-card__unit">M+</span>
+            <p class="result-card__desc">em verba de mídia gerenciada com eficiência</p>
+          </div>
+          <div class="result-card">
+            <span class="result-card__num counter" data-target="68">0</span><span class="result-card__unit">%</span>
+            <p class="result-card__desc">de redução no custo por aquisição (CPA)</p>
+          </div>
+          <div class="result-card">
+            <span class="result-card__num counter" data-target="180">0</span><span class="result-card__unit">+</span>
+            <p class="result-card__desc">clientes ativos em diferentes segmentos</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== DEPOIMENTOS ========== -->
+    <section class="testimonials" id="depoimentos">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag mono">// clientes</span>
+          <h2 class="section-title">O que dizem <span class="gradient-text">nossos clientes</span></h2>
+        </div>
+
+        <div class="testimonials__grid">
+
+          <blockquote class="testi-card">
+            <div class="testi-card__quote"><i class="fa-solid fa-quote-left"></i></div>
+            <p class="testi-card__text">Em 3 meses, a MKS triplicou nossas vendas online. O processo é totalmente transparente e os relatórios são claros e objetivos. ROI de 420% no primeiro trimestre.</p>
+            <div class="testi-card__result">
+              <span class="testi-result-num">+420%</span>
+              <span class="testi-result-lbl">de ROI</span>
+            </div>
+            <footer class="testi-card__author">
+              <div class="testi-avatar">C</div>
+              <div>
+                <strong>Carlos Menezes</strong>
+                <span>CEO — E-commerce de Moda</span>
+              </div>
+            </footer>
+          </blockquote>
+
+          <blockquote class="testi-card testi-card--featured">
+            <div class="testi-card__quote"><i class="fa-solid fa-quote-left"></i></div>
+            <p class="testi-card__text">Reduzimos o custo por lead em 62% em dois meses. A equipe da MKS entende profundamente o negócio antes de apertar qualquer botão. Isso faz toda a diferença.</p>
+            <div class="testi-card__result">
+              <span class="testi-result-num">-62%</span>
+              <span class="testi-result-lbl">no CPL</span>
+            </div>
+            <footer class="testi-card__author">
+              <div class="testi-avatar testi-avatar--purple">A</div>
+              <div>
+                <strong>Ana Ribeiro</strong>
+                <span>CMO — SaaS B2B</span>
+              </div>
+            </footer>
+          </blockquote>
+
+          <blockquote class="testi-card">
+            <div class="testi-card__quote"><i class="fa-solid fa-quote-left"></i></div>
+            <p class="testi-card__text">A automação que implementaram no nosso CRM economizou 40 horas de trabalho manual por semana. Agora o time de vendas foca só em fechar negócios.</p>
+            <div class="testi-card__result">
+              <span class="testi-result-num">40h</span>
+              <span class="testi-result-lbl">economizadas/semana</span>
+            </div>
+            <footer class="testi-card__author">
+              <div class="testi-avatar testi-avatar--blue">R</div>
+              <div>
+                <strong>Rafael Souza</strong>
+                <span>Diretor Comercial — Imobiliária</span>
+              </div>
+            </footer>
+          </blockquote>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== CONTATO ========== -->
+    <section class="contact" id="contato">
+      <div class="container contact__inner">
+        <div class="contact__info">
+          <span class="section-tag mono">// vamos conversar</span>
+          <h2 class="section-title">Pronto para <span class="gradient-text">escalar?</span></h2>
+          <p>Agende uma reunião gratuita de diagnóstico. Em 30 minutos, mostramos onde seu negócio está deixando dinheiro na mesa e como podemos resolver isso.</p>
+
+          <div class="contact__channels">
+            <a href="https://wa.me/5511971608644" class="btn btn--whatsapp" target="_blank" rel="noopener">
+              <i class="fa-brands fa-whatsapp"></i> Falar no WhatsApp
+            </a>
+            <div class="contact__info-items">
+              <div class="contact__info-item">
+                <i class="fa-solid fa-envelope"></i>
+                <span>mks.performace.digital@gmail.com</span>
+              </div>
+              <div class="contact__info-item">
+                <i class="fa-brands fa-instagram"></i>
+                <span>@mksperformance</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <form class="contact__form" id="contactForm" novalidate>
+          <div class="form-group">
+            <label for="nome" class="form-label">Nome completo</label>
+            <input type="text" id="nome" name="nome" class="form-input" placeholder="Seu nome" required />
+          </div>
+          <div class="form-group">
+            <label for="email" class="form-label">E-mail corporativo</label>
+            <input type="email" id="email" name="email" class="form-input" placeholder="seu@email.com.br" required />
+          </div>
+          <div class="form-group">
+            <label for="empresa" class="form-label">Empresa</label>
+            <input type="text" id="empresa" name="empresa" class="form-input" placeholder="Nome da sua empresa" />
+          </div>
+          <div class="form-group">
+            <label for="verba" class="form-label">Verba mensal em mídia</label>
+            <select id="verba" name="verba" class="form-input form-select">
+              <option value="" disabled selected>Selecione um intervalo</option>
+              <option>R$ 1.000 – R$ 5.000</option>
+              <option>R$ 5.000 – R$ 20.000</option>
+              <option>R$ 20.000 – R$ 50.000</option>
+              <option>Acima de R$ 50.000</option>
+            </select>
+          </div>
+          <button type="submit" class="btn btn--primary btn--full">
+            <i class="fa-solid fa-paper-plane"></i> Solicitar diagnóstico gratuito
+          </button>
+          <p class="form-note"><i class="fa-solid fa-lock"></i> Seus dados estão protegidos. Sem spam.</p>
+        </form>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div class="footer__brand">
+        <a href="#" class="logo">
+          <span class="logo__mark">MKS</span>
+          <span class="logo__sub">PERFORMANCE</span>
+        </a>
+        <p>Transformando orçamento de mídia em receita previsível desde 2017.</p>
+        <div class="footer__social">
+          <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+          <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+          <a href="#" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+          <a href="#" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+        </div>
+      </div>
+
+      <nav class="footer__nav">
+        <div class="footer__col">
+          <h4>Serviços</h4>
+          <a href="#servicos">Google Ads</a>
+          <a href="#servicos">Meta Ads</a>
+          <a href="#servicos">TikTok Ads</a>
+          <a href="#servicos">LinkedIn Ads</a>
+          <a href="#servicos">Automações</a>
+        </div>
+        <div class="footer__col">
+          <h4>Empresa</h4>
+          <a href="#sobre">Sobre</a>
+          <a href="#resultados">Resultados</a>
+          <a href="#depoimentos">Clientes</a>
+          <a href="#contato">Contato</a>
+        </div>
+        <div class="footer__col">
+          <h4>Legal</h4>
+          <a href="#">Política de Privacidade</a>
+          <a href="#">Termos de Uso</a>
+        </div>
+      </nav>
+    </div>
+
+    <div class="footer__bottom container">
+      <span class="mono">© 2025 MKS Performance. Todos os direitos reservados.</span>
+      <span class="mono footer__credit">Feito com <i class="fa-solid fa-heart"></i> para resultados reais.</span>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
