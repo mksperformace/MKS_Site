@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contato — MKS Performance</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: #0d0d0d;
+      color: #f0ede8;
+      margin: 0;
+    }
+
+    .container {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 120px 24px 80px;
+    }
+
+    h1 {
+      font-family: 'Syne', sans-serif;
+      font-size: 42px;
+      margin-bottom: 16px;
+    }
+
+    p {
+      color: #a09890;
+      margin-bottom: 40px;
+    }
+
+    .form-card {
+      background: #141414;
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 16px;
+      padding: 40px;
+    }
+
+    .form-group {
+      margin-bottom: 18px;
+    }
+
+    label {
+      display: block;
+      font-size: 13px;
+      margin-bottom: 6px;
+      color: #a09890;
+    }
+
+    input, textarea, select {
+      width: 100%;
+      background: #1a1a1a;
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 10px;
+      padding: 14px;
+      color: #f0ede8;
+      font-size: 14px;
+      outline: none;
+    }
+
+    input:focus, textarea:focus, select:focus {
+      border-color: #1D9E75;
+    }
+
+    textarea {
+      resize: none;
+      min-height: 120px;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    .btn-primary {
+      background: #0F6E56;
+      color: #E1F5EE;
+      border: none;
+      padding: 14px 28px;
+      border-radius: 10px;
+      font-size: 15px;
+      cursor: pointer;
+      width: 100%;
+      transition: 0.2s;
+      margin-top: 10px;
+    }
+
+    .btn-primary:hover {
+      background: #1D9E75;
+    }
+
+    .back-link {
+      display: inline-block;
+      margin-bottom: 32px;
+      color: #a09890;
+      text-decoration: none;
+    }
+
+    .back-link:hover {
+      color: #f0ede8;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+    <a href="index.html" class="back-link">← Voltar</a>
+
+    <h1>Solicitar diagnóstico</h1>
+    <p>Preencha o formulário abaixo. Vamos analisar seu negócio e retornar com uma proposta personalizada.</p>
+    <p> Leva menos de 2 minutos. Quanto mais detalhado, mais precisa será sua proposta. </p>
+
+    <div class="form-card">
+      <form id="lead-form">
+          <input type="hidden" name="origem" value="site_mks">
+          <input type="text" name="_gotcha" style="display:none">
+          <input type="hidden" name="_subject" value="Novo lead - Site MKS">
+
+        <!-- DADOS BÁSICOS -->
+        <div class="form-group">
+          <label>Nome / Empresa</label>
+          <input type="text" name="nome" required>
+        </div>
+
+        <div class="form-group">
+          <label>E-mail</label>
+          <input type="email" name="email" required>
+        </div>
+
+        <div class="form-group">
+          <label>WhatsApp</label>
+          <input type="tel" name="whatsapp" placeholder="(11) 99999-9999" required>
+        </div>
+
+        <!-- NEGÓCIO -->
+        <div class="form-group">
+          <label>Qual é o seu tipo de negócio?</label>
+          <select name="tipo_negocio" required>
+            <option value="">Selecione</option>
+            <option>E-commerce</option>
+            <option>Serviço local</option>
+            <option>Infoproduto</option>
+            <option>Empresa B2B</option>
+            <option>Outro</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label>Qual é o seu principal objetivo?</label>
+          <select name="objetivo" required>
+            <option value="">Selecione</option>
+            <option>Gerar mais leads</option>
+            <option>Aumentar vendas</option>
+            <option>Melhorar posicionamento</option>
+            <option>Escalar operação</option>
+          </select>
+        </div>
+
+        <!-- Serviço -->
+        <div class="form-group">
+          <label>Qual serviço você busca?</label>
+          <select name="servico" id="servico">
+            <option value="">Selecione</option>
+            <option>Mídia Paga</option>
+            <option>Social Media</option>
+            <option>Dados & Dashboards</option>
+            <option>Design</option>
+          </select>
+        </div>
+
+        <!-- Condicional de Valor de Investimento -->
+        <div class="form-group">
+            <label>Você já investe em anúncios?</label>
+            <select id="investe-hoje" name="investe_hoje" required>
+            <option value="">Selecione</option>
+            <option value="sim">Sim, já invisto</option>
+            <option value="nao">Não, pretendo começar</option>
+            </select>
+        </div>
+
+        <div class="form-group hidden" id="investimento-atual">
+            <label>Quanto você investe hoje? (mensal)</label>
+            <select id="faixa-investimento" name="faixa_investimento">
+            <option value="">Selecione</option>
+            <option>Não invisto</option>
+            <option>Até R$1.000</option>
+            <option>R$1.000 - R$5.000</option>
+            <option>R$5.000+</option>
+            </select>
+        </div>
+
+        <div class="form-group hidden" id="investimento-futuro">
+            <label>Quanto pretende investir?</label>
+            <select id="investimento_futuro" name="investimento_futuro">
+            <option value="">Selecione</option>
+            <option>Até R$1.000</option>
+            <option>R$1.000 - R$3.000</option>
+            <option>R$3.000+</option>
+            <option>Ainda não sei</option>
+            </select>
+        </div>
+
+        <div class="form-group hidden" id="valor-exato">
+            <label>Valor aproximado de investimento (opcional, ajuda na análise)</label>
+            <input type="number" name="valor_exato" placeholder="Ex: 2500">
+        </div>
+
+
+        <!-- Mensagem -->
+        <div class="form-group">
+        <label>Fale sobre seu negócio</label>
+        <textarea 
+            name="mensagem" 
+            id="mensagem"
+            maxlength="400"
+            placeholder="Ex: vendo produtos online, já investi em anúncios mas não tive retorno..."
+        ></textarea>
+        <small id="contador-mensagem" style="color:#a09890;">0 / 400</small>
+        </div>
+
+        <button type="submit" class="btn-primary">
+          Quero entender como crescer
+        </button>
+
+      </form>
+    </div>  
+  </div>
+  
+    <script>
+    const form = document.getElementById('lead-form');
+    const servico = document.getElementById('servico');
+
+    const investeHoje = document.getElementById('investe-hoje');
+    const investimentoAtual = document.getElementById('investimento-atual');
+    const investimentoFuturo = document.getElementById('investimento-futuro');
+    const valorExato = document.getElementById('valor-exato');
+
+    // Resetar tudo quando mudar o serviço
+    servico.addEventListener('change', () => {
+        investimentoAtual.classList.add('hidden');
+        investimentoFuturo.classList.add('hidden');
+        valorExato.classList.add('hidden');
+        investeHoje.value = "";
+    });
+
+    // Lógica de exibição
+    investeHoje.addEventListener('change', () => {
+        investimentoAtual.classList.add('hidden');
+        investimentoFuturo.classList.add('hidden');
+        valorExato.classList.add('hidden');
+
+        if (investeHoje.value === "sim") {
+        investimentoAtual.classList.remove('hidden');
+        valorExato.classList.remove('hidden');
+        }
+
+        if (investeHoje.value === "nao") {
+        investimentoFuturo.classList.remove('hidden');
+        valorExato.classList.remove('hidden');
+        }
+    });
+
+    // ENVIO VIA POST
+    form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+
+        const res = await fetch('https://formspree.io/f/mnjwnqjk', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+        },
+        body: JSON.stringify(data)
+        });
+
+        const result = await res.json();
+        console.log(result);
+
+        if (res.ok) {
+        button.innerText = 'Enviado!';
+        form.reset();
+
+        investimentoAtual.classList.add('hidden');
+        investimentoFuturo.classList.add('hidden');
+        valorExato.classList.add('hidden');
+        } else {
+        console.error(result);
+        button.innerText = 'Erro ao enviar';
+        button.disabled = false;
+        }
+    });
+    // Logica para Limitar Mensagem
+    const mensagem = document.getElementById('mensagem');
+    const contador = document.getElementById('contador-mensagem');
+
+    // Atualiza contador em tempo real
+    mensagem.addEventListener('input', () => {
+    const length = mensagem.value.length;
+    contador.innerText = `${length} / 400`;
+
+    // Feedback visual quando estiver próximo do limite
+    if (length > 370) {
+        contador.style.color = '#ffb020'; // amarelo
+    }
+    else {
+        contador.style.color = '#a09890';
+    }
+    });
+    </script>
+
+</body>
+</html>
