@@ -95,6 +95,15 @@
 
     .nav-cta:hover { background: var(--green-400); }
 
+    .menu-toggle {
+      display: none;
+      background: none;
+      border: none;
+      color: var(--text-primary);
+      font-size: 22px;
+      cursor: pointer;
+    }
+
     /* ── LAYOUT ── */
     section {
       padding: 100px 5vw;
@@ -686,6 +695,9 @@
     @media (max-width: 768px) {
       nav { padding: 0 24px; }
       .nav-links { display: none; }
+      .nav-links.active {
+        display: flex;
+      }
 
       section { padding: 72px 24px; }
       #hero { padding-top: 120px; padding-bottom: 72px; }
@@ -709,6 +721,27 @@
 
       .hero-stats { gap: 28px; }
       .section-note { text-align: left; max-width: 100%; }
+      .nav-links {
+        position: fixed;
+        top: 64px;
+        right: -100%;
+        width: 220px;
+        height: calc(100vh - 64px);
+        background: var(--dark-surface);
+        flex-direction: column;
+        padding: 24px;
+        gap: 20px;
+        transition: right 0.3s ease;
+      }
+
+      .nav-links.active {
+        right: 0;
+      }
+
+      .menu-toggle {
+        display: block;
+      }
+
     }
   </style>
 </head>
@@ -723,8 +756,12 @@
       <li><a href="#cases">Cases</a></li>
       <li><a href="#faq">FAQ</a></li>
     </ul>
-    <a href="contato.html" class="btn-primary">Falar com a gente</a>
+
+    <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+
   </nav>
+  
+  <div class="menu-overlay"></div>
 
   <!-- HERO -->
   <section id="hero" class="full-bleed">
@@ -739,6 +776,7 @@
         Unimos mídia paga, social media, design e análise de dados em uma operação integrada — sem achismo, sem enrolação.
       </p>
       <div class="hero-cta-row fade-up">
+        <a href="contato.html" class="btn-primary">Falar com a gente</a>
         <a href="#servicos" class="btn-ghost">Ver nossos serviços</a>
       </div>
       <div class="hero-stats fade-up">
@@ -973,10 +1011,42 @@
     <p>© 2025 MKS Performance — Marketing Digital &amp; Dados</p>
   </footer>
 
+
+
   <script>
+    function toggleMenu() {
+      const nav = document.querySelector('.nav-links');
+      const overlay = document.querySelector('.menu-overlay');
+
+      nav.classList.toggle('active');
+
+      if (overlay) {
+        overlay.classList.toggle('active');
+      }
+    }
+
+    function closeMenu() {
+      const nav = document.querySelector('.nav-links');
+      const overlay = document.querySelector('.menu-overlay');
+
+      if (nav) nav.classList.remove('active');
+      if (overlay) overlay.classList.remove('active');
+    }
+
     function toggleFaq(el) {
       const item = el.parentElement;
       item.classList.toggle('open');
+    }
+
+    // Fecha menu ao clicar em qualquer link
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      link.addEventListener('click', closeMenu);
+    });
+
+    // Fecha menu ao clicar fora (overlay)
+    const overlay = document.querySelector('.menu-overlay');
+    if (overlay) {
+      overlay.addEventListener('click', closeMenu);
     }
 
     // Intersection Observer para animações ao scroll
