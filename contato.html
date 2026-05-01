@@ -267,29 +267,51 @@
     form.addEventListener('submit', async (e) => {
         e.preventDefault();
 
-        const res = await fetch('https://formspree.io/f/mnjwnqjk', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-            'Accept': 'application/json'
-        },
-        body: JSON.stringify(data)
-        });
+        const button = form.querySelector('button[type="submit"]');
+        const textoOriginal = button.innerText;
 
-        const result = await res.json();
-        console.log(result);
+        button.disabled = true;
+        button.innerText = 'Enviando...';
 
-        if (res.ok) {
-        button.innerText = 'Enviado!';
-        form.reset();
+        const formData = new FormData(form);
+        const data = Object.fromEntries(formData.entries());
 
-        investimentoAtual.classList.add('hidden');
-        investimentoFuturo.classList.add('hidden');
-        valorExato.classList.add('hidden');
-        } else {
-        console.error(result);
-        button.innerText = 'Erro ao enviar';
-        button.disabled = false;
+        try {
+            const res = await fetch('https://formspree.io/f/mnjwnqjk', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                },
+                body: JSON.stringify(data)
+            });
+
+            const result = await res.json();
+            console.log(result);
+
+            if (res.ok) {
+                button.innerText = 'Enviado!';
+                form.reset();
+
+                investimentoAtual.classList.add('hidden');
+                investimentoFuturo.classList.add('hidden');
+                valorExato.classList.add('hidden');
+                contador.innerText = '0 / 400';
+                contador.style.color = '#a09890';
+
+                setTimeout(() => {
+                    button.innerText = textoOriginal;
+                    button.disabled = false;
+                }, 2500);
+            } else {
+                console.error(result);
+                button.innerText = 'Erro ao enviar';
+                button.disabled = false;
+            }
+        } catch (error) {
+            console.error(error);
+            button.innerText = 'Erro ao enviar';
+            button.disabled = false;
         }
     });
     // Logica para Limitar Mensagem
