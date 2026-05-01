@@ -13,18 +13,21 @@
     :root {
       --green-50: #E1F5EE;
       --green-100: #9FE1CB;
-      --green-400: #1D9E75;
-      --green-600: #0F6E56;
-      --green-800: #085041;
-      --green-900: #04342C;
-      --dark-bg: #0d0d0d;
-      --dark-surface: #141414;
-      --dark-surface2: #1a1a1a;
-      --dark-border: rgba(255,255,255,0.08);
-      --dark-border-strong: rgba(255,255,255,0.14);
-      --text-primary: #f0ede8;
-      --text-secondary: #a09890;
-      --text-muted: #5a5550;
+      --green-400: #22c58b; /* mais vivo */
+      --green-600: #16a374;
+      --green-800: #0f7a5c;
+      --green-900: #0a5c47;
+
+      --dark-bg: #0b0b0b;
+      --dark-surface: #121212;
+      --dark-surface2: #181818;
+
+      --dark-border: rgba(255, 255, 255, 0.56);
+      --dark-border-strong: rgba(255, 255, 255, 0.676);
+
+      --text-primary: #ffffff;
+      --text-secondary: #cfc7be; /* MAIS CLARO */
+      --text-muted: #9b948c; /* MAIS VISÍVEL */
     }
 
     html { scroll-behavior: smooth; }
@@ -104,6 +107,28 @@
       cursor: pointer;
     }
 
+    .menu-overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 99;
+      backdrop-filter: blur(4px);
+      animation: fadeIn 0.2s ease;
+    }
+
+    .menu-overlay.active {
+      display: block;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
     /* ── LAYOUT ── */
     section {
       padding: 100px 5vw;
@@ -144,6 +169,11 @@
       width: 18px;
       height: 1px;
       background: var(--green-400);
+    }
+
+    /* Scroll margin para âncoras internas (fix do nav fixa) */
+    #hero, #servicos, #processo, #cases, #faq, #contato {
+      scroll-margin-top: 80px;
     }
 
     /* ── HERO ── */
@@ -214,7 +244,7 @@
       line-height: 1.65;
       max-width: 560px;
       margin-bottom: 48px;
-      font-weight: 300;
+      font-weight: 400;
     }
 
     .hero-cta-row {
@@ -257,6 +287,16 @@
     }
 
     .btn-ghost:hover { color: var(--text-primary); border-color: rgba(255,255,255,0.25); }
+    
+    .hero-stat {
+      min-width: 140px;
+    }
+
+    .hero-stat-num {
+      display: flex;
+      align-items: baseline;
+      gap: 4px;
+    }
 
     .hero-stats {
       display: flex;
@@ -265,6 +305,7 @@
       padding-top: 48px;
       border-top: 0.5px solid var(--dark-border);
       flex-wrap: wrap;
+      align-items: flex-start; /* garante alinhamento consistente */
     }
 
     .hero-stat-num {
@@ -273,16 +314,18 @@
       font-weight: 800;
       color: var(--text-primary);
       letter-spacing: -0.02em;
-      line-height: 1;
+      line-height: 1.1;
       margin-bottom: 4px;
     }
 
-    .hero-stat-num span { color: var(--green-400); }
+    .hero-stat-num span {
+      color: var(--green-400);
+      text-shadow: 0 0 8px rgba(34,197,139,0.4);
+    }
 
     .hero-stat-label {
-      font-size: 13px;
-      color: var(--text-muted);
-      line-height: 1.4;
+      color: var(--text-secondary);
+      font-weight: 400;
     }
 
     /* ── DIFERENCIAIS ── */
@@ -441,7 +484,7 @@
       color: var(--text-secondary);
       line-height: 1.7;
       margin-top: 20px;
-      font-weight: 300;
+      font-weight: 400;
     }
 
     .process-steps {
@@ -563,7 +606,7 @@
     .faq-q::after {
       content: '+';
       font-size: 22px;
-      font-weight: 300;
+      font-weight: 400;
       color: var(--green-400);
       flex-shrink: 0;
       transition: transform 0.2s;
@@ -576,7 +619,7 @@
       color: var(--text-secondary);
       line-height: 1.7;
       display: none;
-      font-weight: 300;
+      font-weight: 400;
     }
 
     .faq-item.open .faq-a { display: block; }
@@ -637,7 +680,7 @@
       font-size: 15px;
       color: var(--text-secondary);
       line-height: 1.6;
-      font-weight: 300;
+      font-weight: 400;
     }
 
     .cta-actions {
@@ -719,7 +762,10 @@
 
       .cta-actions { flex-direction: row; flex-wrap: wrap; }
 
-      .hero-stats { gap: 28px; }
+      .hero-stats { 
+        gap: 24px;
+        flex-direction: column;
+      }
       .section-note { text-align: left; max-width: 100%; }
       .nav-links {
         position: fixed;
@@ -732,6 +778,8 @@
         padding: 24px;
         gap: 20px;
         transition: right 0.3s ease;
+        border-left: 0.5px solid var(--dark-border);
+        box-shadow: -2px 0 20px rgba(0, 0, 0, 0.5);
       }
 
       .nav-links.active {
@@ -742,6 +790,13 @@
         display: block;
       }
 
+    }
+
+    /* Responsivo para tablet (1024px) */
+    @media (max-width: 1024px) and (min-width: 768px) {
+      .cases-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
     }
   </style>
 </head>
@@ -780,16 +835,18 @@
         <a href="#servicos" class="btn-ghost">Ver nossos serviços</a>
       </div>
       <div class="hero-stats fade-up">
-        <div>
+        <div class="hero-stat">
           <div class="hero-stat-num"><span>360</span>°</div>
           <div class="hero-stat-label">Operação integrada<br>do início ao fim</div>
         </div>
-        <div>
-          <div class="hero-stat-num">Data<span>-</span><br>driven</div>
+
+        <div class="hero-stat">
+          <div class="hero-stat-num">Data<span>-</span>driven</div>
           <div class="hero-stat-label">Decisões baseadas<br>em dados reais</div>
         </div>
-        <div>
-          <div class="hero-stat-num">Sob<br><span>medida</span></div>
+
+        <div class="hero-stat">
+          <div class="hero-stat-num">Sob <span>medida</span></div>
           <div class="hero-stat-label">Proposta adaptada<br>ao seu negócio</div>
         </div>
       </div>
@@ -1000,7 +1057,7 @@
       </div>
       <div class="cta-actions">
         <a href="contato.html" class="btn-primary">Falar com a gente</a>
-        <a href="https://wa.me/55XXXXXXXXXXX" class="btn-ghost">WhatsApp</a>
+        <a href="https://wa.me/551145678901" class="btn-ghost">WhatsApp</a>
       </div>
     </div>
   </section>
